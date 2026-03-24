@@ -1,0 +1,293 @@
+/* PAGE BACKGROUND */
+body {
+    background: #0d1b2a;
+    padding: 40px;
+    font-family: "Poppins", sans-serif;
+    color: #e0f7ff;
+}
+
+/* BACK ARROW */
+.back-arrow {
+    display: inline-block;
+    padding: 10px 20px;
+    background: #9bcae2;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    transition: 0.3s;
+    box-shadow: 0 0 10px #00aaff;
+  }
+
+.back-arrow:hover {
+    background: #00ccff;
+    box-shadow: 0 0 20px #00aaff;
+  }
+
+/* WRAPPER */
+.blog-wrapper {
+    display: flex;
+    justify-content: center;
+}
+
+/* MAIN GLOWING CARD */
+.blog-card {
+    max-width: 900px;
+    padding: 40px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(0,255,255,0.25);
+    box-shadow:
+        0 0 25px rgba(0,255,255,0.4),
+        inset 0 0 15px rgba(0,255,255,0.2);
+    backdrop-filter: blur(10px);
+
+    animation: glowPulse 3s infinite alternate ease-in-out;
+}
+
+/* NEON GLOW ANIMATION */
+@keyframes glowPulse {
+    from {
+        box-shadow:
+            0 0 15px rgba(0,255,255,0.3),
+            inset 0 0 8px rgba(0,255,255,0.1);
+    }
+    to {
+        box-shadow:
+            0 0 35px rgba(0,255,255,0.8),
+            inset 0 0 18px rgba(0,255,255,0.3);
+    }
+}
+
+/* GLOWING IMAGE */
+.blog-image {
+    width: 100%;
+    border-radius: 15px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    border: 2px solid rgba(0,255,255,0.4);
+    box-shadow: 0 0 25px rgba(0,255,255,0.6);
+}
+
+.blog-image img {
+    width: 100%;
+    display: block;
+    border-radius: 15px;
+}
+
+/* TITLES */
+.blog-card h1 {
+    font-size: 36px;
+    color: #00eaff;
+    text-shadow: 0 0 12px #00eaff;
+}
+
+.blog-card h2 {
+    margin-top: 25px;
+    color: #00d7ff;
+    text-shadow: 0 0 8px #00d7ff;
+}
+
+/* PARAGRAPHS */
+.blog-card p {
+    margin-top: 10px;
+}
+
+/* FADE-IN */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 1.3s ease forwards;
+}
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* SHARE SECTION */
+.share-section {
+    margin-top: 40px;
+    text-align: center;
+}
+
+.share-section h3 {
+    color: #00eaff;
+    margin-bottom: 15px;
+}
+
+/* SHARE BUTTONS */
+.share-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 12px;
+}
+
+.btn-share {
+    padding: 10px 18px;
+    border-radius: 10px;
+    font-size: 14px;
+    color: #0d1b2a;
+    background: #00eaff;
+    cursor: pointer;
+    border: none;
+    text-decoration: none;
+    transition: 0.3s;
+    font-weight: 600;
+    box-shadow: 0 0 12px #00eaff;
+}
+
+.btn-share:hover {
+    background: #00faff;
+    box-shadow: 0 0 25px #00faff;
+}
+
+/* Colors per platform */
+.fb { background: #1877f2; color: white; }
+.fb:hover { box-shadow: 0 0 20px #1877f2; }
+
+.tw { background: #1DA1F2; color: white; }
+.tw:hover { box-shadow: 0 0 20px #1DA1F2; }
+
+.wa { background: #25d366; color: white; }
+.wa:hover { box-shadow: 0 0 20px #25d366; }
+
+.ln { background: #0A66C2; color: white; }
+.ln:hover { box-shadow: 0 0 20px #0A66C2; }
+
+.cp { background: #00eaff; color: #0d1b2a; } 
+
+/* PAGE BACKGROUND2 */
+body {
+    background: #0d1b2a;
+    padding: 40px;
+    font-family: "Poppins", sans-serif;
+    color: #e0f7ff;
+}
+
+/* BACK ARROW */
+.back-arrow {
+    display: inline-block;
+  padding: 10px 20px;
+  background: #00aaff;
+  color: white;
+  text-decoration: none;
+  border-radius: 8px;
+  transition: 0.3s;
+  box-shadow: 0 0 10px #00aaff;
+}
+.back-arrow:hover {
+    background: #00ccff;
+  box-shadow: 0 0 20px #00aaff;
+}
+/* BLOG WRAPPER */
+.blog-card {
+    max-width: 900px;
+    margin: 80px auto;
+    padding: 40px;
+    border-radius: 18px;
+    background: rgba(255,255,255,0.05);
+    border: 2px solid rgba(0,255,255,0.25);
+    box-shadow:
+        0 0 25px rgba(0,255,255,0.4),
+        inset 0 0 15px rgba(0,255,255,0.2);
+    backdrop-filter: blur(10px);
+    animation: glowPulse 3s infinite alternate ease-in-out;
+}
+
+/* NEON GLOW ANIMATION */
+@keyframes glowPulse {
+    from {
+        box-shadow:
+            0 0 15px rgba(0,255,255,0.3),
+            inset 0 0 8px rgba(0,255,255,0.1);
+    }
+    to {
+        box-shadow:
+            0 0 35px rgba(0,255,255,0.8),
+            inset 0 0 18px rgba(0,255,255,0.3);
+    }
+}
+
+/* GLOWING IMAGE */
+.top-image {
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 0 18px cyan;
+    margin-bottom: 20px;
+}
+
+/* HEADINGS */
+h1 {
+    font-size: 36px;
+    color: #00eaff;
+    text-align: center;
+    text-shadow: 0 0 12px #00eaff;
+}
+
+h2 {
+    margin-top: 25px;
+    color: #00d7ff;
+    text-shadow: 0 0 8px #00d7ff;
+}
+
+/* PARAGRAPHS */
+p {
+    margin-top: 10px;
+    line-height: 1.7;
+    font-size: 16px;
+    color: #d9f6ff;
+}
+
+/* FADE-IN */
+.fade-in {
+    opacity: 0;
+    transform: translateY(40px);
+    animation: fadeInUp 1.4s ease forwards;
+}
+
+@keyframes fadeInUp {
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* SHARE SECTION */
+.share-box {
+    margin-top: 35px;
+    text-align: center;
+}
+
+.share-btn {
+    display: inline-block;
+    padding: 10px 20px;
+    margin: 8px;
+    border-radius: 30px;
+    font-size: 14px;
+    font-weight: 600;
+    color: #0d1b2a;
+    text-decoration: none;
+    background: #00eaff;
+    box-shadow: 0 0 12px #00eaff;
+    transition: 0.3s;
+}
+
+.share-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 25px #00eaff;
+}
+
+/* PLATFORM COLORS */
+.fb { background: #1877f2; color: white; }
+.fb:hover { box-shadow: 0 0 20px #1877f2; }
+
+.tw { background: #1DA1F2; color: white; }
+.tw:hover { box-shadow: 0 0 20px #1DA1F2; }
+
+.wa { background: #25d366; color: white; }
+.wa:hover { box-shadow: 0 0 20px #25d366; } 
+
+  /* RATING */
+  
