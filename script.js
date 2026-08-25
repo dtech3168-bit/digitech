@@ -8,21 +8,6 @@ hamburger.addEventListener("click", () => {
 
 
 
-const portfolioCards = document.querySelectorAll(".fade-in");
-
-function fadeInPortfolio() {
-  portfolioCards.forEach(card => {
-    const cardTop = card.getBoundingClientRect().top;
-    const screenHeight = window.innerHeight;
-
-    if (cardTop < screenHeight - 50) {
-      card.classList.add("visible");
-    }
-  });
-}
-
-window.addEventListener("scroll", fadeInPortfolio);
-fadeInPortfolio();
 
 
 
@@ -199,36 +184,6 @@ window.addEventListener("load", fadeInOnScroll);
 
 
 
-// Project details with image URLs
-const projects = {
-    proj1: {
-        image: "dashboard.png",
-        text: `<h2>Gym Management Dashboard</h2>
-               <p>This weather app uses real-time API data to show current weather, temperature, and forecasts. Fully responsive with smooth animations.</p>`
-    },
-    proj2: {
-        image: "todo.png",
-        text: `<h2>Smart To-Do App</h2>
-               <p>This to-do app lets you create tasks, mark as done, and save notes locally. It features a modern UI, drag & drop, and responsive design.</p>`
-    },
-    proj3: {
-        image: "elite.png",
-        text: `<h2>Automobile Car Dealership</h2>
-               <p>This blog displays posts dynamically with a popup for full content. Includes smooth fade-in animations and a responsive layout.</p>`
-    }
-};
-
-// Open popup on "View Project"
-document.querySelectorAll(".btn-project").forEach(btn => {
-    btn.addEventListener("click", () => {
-        const card = btn.closest(".portfolio-card");
-        const projID = card.getAttribute("data-project");
-        document.getElementById("popup-text").innerHTML = projects[projID].text;
-        document.getElementById("popup-image").src = projects[projID].image;
-        document.getElementById("project-popup").style.display = "flex";
-    });
-});
-
 
 const resumeSection = document.querySelector(".resume-section");
 
@@ -241,7 +196,129 @@ window.addEventListener("scroll", () => {
     }
 }); 
 
-// Close popup
-document.querySelector(".close-popup").onclick = function() {
-    document.getElementById("project-popup").style.display = "none";
-}; 
+
+
+
+
+
+
+
+///
+
+// Automatically fetch and bind screenshots using Microlink Screenshot API
+document.addEventListener("DOMContentLoaded", () => {
+  // Auto-fetch screenshots and manage loading state
+  const cards = document.querySelectorAll(".portfolio-card");
+  cards.forEach(card => {
+    const url = card.getAttribute("data-url");
+    const imgElement = card.querySelector(".project-thumb");
+    const container = card.querySelector(".img-container");
+        
+    if (url && imgElement) {
+      const screenshotApiUrl = `https://api.microlink.io/?url=${encodeURIComponent(url)}&screenshot=true&meta=false&embed=screenshot.url`;
+            
+      imgElement.src = screenshotApiUrl;
+            
+      // Hide spinner and fade in image once loaded
+      imgElement.onload = () => {
+        imgElement.classList.add("loaded");
+        if (container) container.classList.add("loaded");
+      };
+
+      // Fallback in case of network error
+      imgElement.onerror = () => {
+        if (container) container.classList.add("loaded");
+      };
+    }
+  });
+
+  // Project descriptions data
+  const projects = {
+    proj1: {
+      text: `<h2>BizPilot</h2>
+           <p>Full-stack SaaS application built with Laravel/PHP, JavaScript, Node.js, MySQL and REST APIs, featuring WhatsApp automation, AI integrations, payment processing, CRM, inventory, order management and invoice generation.</p>`
+    },
+    proj2: {
+      text: `<h2>Revelation Vault</h2>
+           <p>NFT marketplace built with PHP, MySQL, JavaScript, HTML/CSS, and Solana integration, implementing dynamic NFT listings, asset detail pages, authentication, wallet interactions, and backend marketplace workflows.</p>`
+    },
+    proj3: {
+      text: `<h2>Elite cars</h2>
+           <p>Frontend car dealership website built with HTML5, CSS3, and JavaScript, featuring responsive layouts, interactive vehicle listings, animated UI components, inventory browsing, and a modern luxury-focused user interface.</p>`
+    },
+    proj4: {
+      text: `<h2>Greaselogs</h2>
+           <p>Social media account marketplace built with PHP, MySQL, JavaScript, HTML/CSS, and AcctShop REST API integration, featuring API-driven inventory, dynamic listings, authentication, order processing, payment workflows, and backend marketplace management.</p>`
+    },
+    proj5: {
+      text: `<h2>Fast Clothing</h2>
+           <p>Responsive fashion e-commerce platform built with HTML5, CSS3, JavaScript, PHP, and MySQL, featuring dynamic product listings, shopping workflows, responsive UI components, product browsing, and customer-focused navigation. The project demonstrates frontend development, backend integration, database-driven content, and e-commerce functionality across desktop and mobile devices.</p>`
+    },
+    proj6: {
+      text: `<h2>Smartech</h2>
+           <p>Smartech is a full-stack digital services platform built with HTML5, CSS3, JavaScript, PHP, and MySQL, featuring responsive web interfaces, service management, business-focused workflows, contact integrations, and dynamic backend functionality. The project demonstrates end-to-end development, from frontend UI implementation to backend logic and database integration.</p>`
+    },
+    proj7: {
+      text: `<h2>Ptecho</h2>
+           <p>A modern web application built with HTML5, CSS3, and JavaScript, featuring responsive design, interactive elements, and a clean user interface.</p>`
+    },
+    proj8: {
+      text: `<h2>Veridian</h2>
+           <p>A modern professional cleaning service website built with HTML5, CSS3, and JavaScript.</p>`
+    }
+    
+  };
+
+  const popup = document.getElementById("project-popup");
+  const popupText = document.getElementById("popup-text");
+  const popupImage = document.getElementById("popup-image");
+  const popupVisitBtn = document.getElementById("popup-visit-btn");
+  const closePopupBtn = document.querySelector(".close-popup");
+
+  // Open popup on "View Project"
+  document.querySelectorAll(".btn-project").forEach(btn => {
+    btn.addEventListener("click", (e) => {
+      const card = btn.closest(".portfolio-card");
+      const projID = card.getAttribute("data-project");
+      const url = card.getAttribute("data-url");
+      const thumbSrc = card.querySelector(".project-thumb").src;
+
+      // Populate popup details
+      if (projects[projID]) popupText.innerHTML = projects[projID].text;
+      popupImage.src = thumbSrc || '';
+      popupVisitBtn.href = url || '#';
+
+      // Show popup with scale-up entrance animation
+      if (popup) popup.classList.add("active");
+    });
+  });
+
+  // Close popup handlers
+  function closePopup() {
+    if (popup) popup.classList.remove("active");
+  }
+
+  if (closePopupBtn) closePopupBtn.addEventListener("click", closePopup);
+  if (popup) popup.addEventListener("click", (e) => {
+    if (e.target === popup) {
+      closePopup();
+    }
+  });
+
+  // Scroll fade-in effect for cards
+  const portfolioCards = document.querySelectorAll(".fade-in");
+
+  function fadeInPortfolio() {
+    portfolioCards.forEach(card => {
+      const cardTop = card.getBoundingClientRect().top;
+      const screenHeight = window.innerHeight;
+
+      if (cardTop < screenHeight - 50) {
+        card.classList.add("visible");
+      }
+    });
+  }
+
+  window.addEventListener("scroll", fadeInPortfolio);
+  fadeInPortfolio();
+});
