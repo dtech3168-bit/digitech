@@ -236,7 +236,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const projects = {
     proj1: {
       text: `<h2>BizPilot</h2>
-           <p>Full-stack SaaS application built with Laravel/PHP, JavaScript, Node.js, MySQL and REST APIs, featuring WhatsApp automation, AI integrations, payment processing, CRM, inventory, order management and invoice generation.</p>`
+           <p>Full-stack SaaS application built with Laravel/PHP, JavaScript, MySQL and REST APIs, featuring WhatsApp automation, AI integrations, payment processing, CRM, inventory, order management and invoice generation.</p>`
     },
     proj2: {
       text: `<h2>Revelation Vault</h2>
@@ -265,7 +265,12 @@ document.addEventListener("DOMContentLoaded", () => {
     proj8: {
       text: `<h2>Veridian</h2>
            <p>A modern professional cleaning service website built with HTML5, CSS3, and JavaScript.</p>`
-    }
+    },
+
+proj9: {
+  text: `<h2>Carepharm<h2>
+      <p> A modern, responsive pharmacy website for browsing and exploring healthcare products, built with React and TypeScript.</p>`
+}
     
   };
 
