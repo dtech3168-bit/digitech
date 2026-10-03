@@ -1,4 +1,4 @@
-# Smart Wisdom — Frontend Developer Portfolio
+# Ezekwe (Smart) Wisdom — Frontend Developer Portfolio
 
 A responsive personal portfolio website showcasing my frontend development projects, technical skills, and experience building modern web applications and digital experiences.
 
@@ -64,4 +64,4 @@ Modern React-based school management dashboard with reusable components, respons
 
 ---
 
-Built by **Smart Wisdom**
+Built by **Ezekwe (Smart) Wisdom**
